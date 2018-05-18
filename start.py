@@ -4,8 +4,7 @@ import time
 import sys
 
 running = True
-while running and time.localtime(4) == (0,30):
-# local.time index "4" is the minute mark
+while running:
 # Uses Twilio to send a text message using their API
     def send_msg(msg):
     # Your Account Sid and Auth Token from twilio.com/console
@@ -14,7 +13,7 @@ while running and time.localtime(4) == (0,30):
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
-                                    body=msg,"30 min study text"
+                                    body="30 min study text",
                                     from_="+19124212491",
                                     to="+19126635271"
                                     )
