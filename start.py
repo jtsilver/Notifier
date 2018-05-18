@@ -3,10 +3,11 @@ from twilio.rest import Client
 import time
 import sys
 
-running = True
-while running:
+while True:
+    t = time.localtime()
+    if t[4] == 0 or t[4] == 30:
 # Uses Twilio to send a text message using their API
-    def send_msg(msg):
+
     # Your Account Sid and Auth Token from twilio.com/console
         account_sid = 'ACeecbc7f2c2329a5b2f86bd9be847e3c0'
         auth_token = '5fb1c0e0af7ddc84b88aae091b91abf7'
@@ -18,7 +19,10 @@ while running:
                                     to="+19126635271"
                                     )
 
-time.sleep(60)
+        print(message.sid)
+        time.sleep(60)
+
+
 
 # 1. Loop continuously
 # 2. Look at the time and see if it's time to send SMS
